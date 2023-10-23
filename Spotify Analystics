@@ -28,49 +28,78 @@ time_signature integer NOT NULL
 
 #Next, I explored the data using the following SQL. 
 
-#What soungs are more likely to get you to dance?
-SELECT 
-  id, 
-  artist_name, 
-  track_name, 
-  danceability 
-FROM 
-  BIT_DB.Spotifydata
-ORDER BY 
-  danceability DESC
-LIMIT 5;
+#What are the top five most popular songs in 2021?
+  SELECT 
+      artist_name,
+      track_name,
+      avg(popularity)
+  FROM
+      BIT_DB.Spotifydata
+  GROUP BY 
+      artist_name,
+      track_name
+  ORDER BY 
+      avg(popularity) DESC
+  LIMIT 5;
 
-#Who is the top 5 most popular artists in 2021?
-SELECT id, artist_name 
-FROM BIT_DB.Spotifydata
-LIMIT 5
+
+#What soungs are more likely to get you to dance?
+  SELECT 
+      id, 
+      artist_name, 
+      track_name, 
+      danceability 
+  FROM 
+      BIT_DB.Spotifydata
+  GROUP BY 
+      artist_name,
+      track_name
+  ORDER BY 
+      danceability DESC
+  LIMIT 5;
+
 
 #How does danceability of the song influence its popularity?
-SELECT id, artist_name, track_name, danceability 
-FROM BIT_DB.Spotifydata
-LIMIT 5
+  SELECT 
+      id, 
+      artist_name, 
+      track_name, 
+      danceability,
+      popularity
+  FROM 
+      BIT_DB.Spotifydata
+  GROUP BY 
+      artist_name,
+      track_name
+  ORDER BY
+      danceability DESC
+  LIMIT 5;
 
 #What are the best key and modality for a song to be "popular"?
-SELECT id, artist_name, track_name, song_key, song_mode 
-FROM BIT_DB.Spotifydata
-LIMIT 5
+  SELECT 
+      id, 
+      artist_name, 
+      track_name, 
+      song_key, 
+      song_mode,
+      popularity
+  FROM 
+      BIT_DB.Spotifydata
+  GROUP BY 
+      artist_name,
+      track_name
+  ORDER BY 
+      popularity DESC
+  LIMIT 5;
 
 #Which artists has the most songs on Spotifys top 50 chart?
-SELECT artist_name, COUNT(artist_name) AS quantity
-FROM BIT_DB.Spotifydata
-GROUP BY artist_name
-ORDER BY quantity DESC
-LIMIT 2
-
-#Who are the top 10 artists based on popularity? 
-SELECT artist_name, popularity
-FROM BIT_DB.Spotifydata
-ORDER BY popularity DESC
-LIMIT 10
-
-#What artist released the longest song? 
-SELECT artist_name, track_name, duration_ms
-FROM BIT_DB.Spotifydata
-GROUP BY duration_ms
-ORDER BY duration_ms DESC
-LIMIT 1
+  SELECT 
+      artist_name, 
+      COUNT(artist_name) AS quantity
+  FROM 
+      BIT_DB.Spotifydata
+  GROUP BY 
+      artist_name
+  ORDER BY 
+      quantity DESC
+  LIMIT 2;
