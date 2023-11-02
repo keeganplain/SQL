@@ -1,6 +1,6 @@
-# For this project, I downloaded Spotify data from Kaggle.
-# Then I created a table to insert Spotify data into.
-# Finally, I performed analytics on the data using SQL. 
+## For this project, I downloaded Spotify data from Kaggle.
+## Then I created a table to insert Spotify data into.
+## Finally, I performed analytics on the data using SQL. 
 
 #Creating the table: 
 CREATE TABLE BIT_DB.Spotifydata (
@@ -24,11 +24,11 @@ duration_ms integer NOT NULL,
 time_signature integer NOT NULL 
 )
 
-#Then I inserted the Spotify Data .csv into the table.
+## Then I inserted the Spotify Data .csv into the table.
 
-#Next, I explored the data using the following SQL. 
+## Next, I explored the data using the following SQL. 
 
-#What are the top five most popular songs in 2021?
+## What are the top five most popular songs in 2021?
   SELECT 
       artist_name,
       track_name,
@@ -43,7 +43,7 @@ time_signature integer NOT NULL
   LIMIT 5;
 
 
-#What soungs are more likely to get you to dance?
+## What soungs are more likely to get you to dance?
   SELECT 
       id, 
       artist_name, 
@@ -59,7 +59,7 @@ time_signature integer NOT NULL
   LIMIT 5;
 
 
-#How does danceability of the song influence its popularity?
+## How does danceability of the song influence its popularity?
   SELECT 
       id, 
       artist_name, 
@@ -75,7 +75,7 @@ time_signature integer NOT NULL
       danceability DESC
   LIMIT 5;
 
-#What are the best key and modality for a song to be "popular"?
+## What are the best key and modality for a song to be "popular"?
   SELECT 
       id, 
       artist_name, 
@@ -92,7 +92,7 @@ time_signature integer NOT NULL
       popularity DESC
   LIMIT 5;
 
-#Which artists has the most songs on Spotifys top 50 chart?
+## Which artists has the most songs on Spotifys top 50 chart?
   SELECT 
       artist_name, 
       COUNT(artist_name) AS quantity
