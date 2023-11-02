@@ -48,22 +48,78 @@ INSERT INTO marvels VALUES(25, "Juggernaut", 76, "Neutral", "Male", 2.87, 862, "
 INSERT INTO marvels VALUES(26, "Professor X", 58, "Good", "Male", 1.83, 86, "EUA", 5, 2, 2, 2, 5, 3);
 
 --What are the top 3 most popular Marvel characters?
-SELECT name, popularity FROM marvels ORDER BY popularity asc limit 3;
+SELECT 
+  name, 
+  popularity 
+FROM 
+  marvels 
+ORDER BY 
+  popularity asc 
+limit 3;
 
 --What are the 3 least popular Marvel characters?
-SELECT name, popularity FROM marvels ORDER BY popularity desc limit 3;
+SELECT 
+  name, 
+  popularity 
+FROM 
+  marvels 
+ORDER BY 
+  popularity desc 
+limit 3;
 
 --What are the average fighting skills of each Marvel character looking at their strength, speed, and fighting skills?
-SELECT name, (strength + speed+ fighting_skills)/3 AS avg_skills FROM marvels GROUP BY name;
+SELECT 
+  name, 
+  (strength + speed+ fighting_skills)/3 AS avg_skills 
+FROM 
+  marvels 
+GROUP BY 
+  name;
 
 --What Marvel characters have average fighting skills greater that 5?
-SELECT name, (strength + speed+ fighting_skills)/3 AS avg_skills FROM marvels GROUP BY name HAVING avg_skills > 5;
+SELECT 
+  name, 
+  (strength + speed+ fighting_skills)/3 AS avg_skills 
+FROM 
+  marvels 
+GROUP BY 
+  name 
+HAVING 
+  avg_skills > 5;
 
 --Rank the Marvel characters by good, bad, or okay based on their fighting skills.
-SELECT COUNT (*), name, CASE WHEN fighting_Skills < 4 THEN "bad" WHEN fighting_Skills > 5 THEN "good" ELSE "okay" END as "ranking" FROM marvels GROUP BY ranking;
+SELECT 
+  COUNT (*), 
+  name, 
+CASE 
+  WHEN fighting_Skills < 4 THEN "bad" 
+  WHEN fighting_Skills > 5 THEN "good" 
+  ELSE "okay" END as "ranking" 
+FROM 
+  marvels 
+GROUP BY 
+  ranking;
 
 --What Marvel characters have strength and intelligence greater than 5?
-SELECT name, intelligence, strength FROM marvels WHERE intelligence > 5 AND strength > 5 GROUP BY name;
+SELECT 
+  name, 
+  intelligence, 
+  strength 
+FROM 
+  marvels 
+WHERE 
+  intelligence > 5 AND strength > 5 
+GROUP BY 
+  name;
 
 --What Marvel characters have strength or intelligence greater than 5?
-SELECT name, intelligence, strength FROM marvels WHERE intelligence > 5 OR strength > 5 GROUP BY name;
+SELECT 
+  name, 
+  intelligence, 
+  strength 
+FROM 
+  marvels 
+WHERE 
+  intelligence > 5 OR strength > 5 
+GROUP BY 
+  name;
