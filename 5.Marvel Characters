@@ -47,7 +47,7 @@ INSERT INTO marvels VALUES(24, "Venon", 78, "Neutral", "Male", 1.90, 118, "EUA",
 INSERT INTO marvels VALUES(25, "Juggernaut", 76, "Neutral", "Male", 2.87, 862, "EUA", 2, 7, 2, 7, 1, 4);
 INSERT INTO marvels VALUES(26, "Professor X", 58, "Good", "Male", 1.83, 86, "EUA", 5, 2, 2, 2, 5, 3);
 
---What are the top 3 most popular Marvel characters?
+## What are the top 3 most popular Marvel characters?
 SELECT 
   name, 
   popularity 
@@ -57,7 +57,7 @@ ORDER BY
   popularity asc 
 limit 3;
 
---What are the 3 least popular Marvel characters?
+## What are the 3 least popular Marvel characters?
 SELECT 
   name, 
   popularity 
@@ -67,7 +67,7 @@ ORDER BY
   popularity desc 
 limit 3;
 
---What are the average fighting skills of each Marvel character looking at their strength, speed, and fighting skills?
+## What are the average fighting skills of each Marvel character looking at their strength, speed, and fighting skills?
 SELECT 
   name, 
   (strength + speed+ fighting_skills)/3 AS avg_skills 
@@ -76,7 +76,7 @@ FROM
 GROUP BY 
   name;
 
---What Marvel characters have average fighting skills greater that 5?
+## What Marvel characters have average fighting skills greater that 5?
 SELECT 
   name, 
   (strength + speed+ fighting_skills)/3 AS avg_skills 
@@ -87,7 +87,7 @@ GROUP BY
 HAVING 
   avg_skills > 5;
 
---Rank the Marvel characters by good, bad, or okay based on their fighting skills.
+## Rank the Marvel characters by good, bad, or okay based on their fighting skills.
 SELECT 
   COUNT (*), 
   name, 
@@ -100,7 +100,7 @@ FROM
 GROUP BY 
   ranking;
 
---What Marvel characters have strength and intelligence greater than 5?
+## What Marvel characters have strength and intelligence greater than 5?
 SELECT 
   name, 
   intelligence, 
@@ -112,7 +112,7 @@ WHERE
 GROUP BY 
   name;
 
---What Marvel characters have strength or intelligence greater than 5?
+## What Marvel characters have strength or intelligence greater than 5?
 SELECT 
   name, 
   intelligence, 
