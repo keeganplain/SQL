@@ -9,7 +9,8 @@
         chinook.customers c
     JOIN
         Chinook.invoices i
-    ON c.CustomerID = i.CustomerId
+    ON 
+        c.CustomerID = i.CustomerId
     WHERE
         BillingCountry = 'Brazil';
     
@@ -21,7 +22,7 @@
     ORDER BY
         BillingCountry;
         
-##Show the invoices associated with each sales agent 
+## Show the invoices associated with each sales agent 
     SELECT
         e.FirstName,
         e.LastName,
@@ -31,14 +32,16 @@
         chinook.employees e
     JOIN
         chinook.customers c
-    ON e.EmployeeId = c.SupportRepId
+    ON 
+        e.EmployeeId = c.SupportRepId
     JOIN
         chinook.Invoices i
-    On c.CustomerId = i.CustomerId
+    On 
+        c.CustomerId = i.CustomerId
     ORDER BY 
         e.LastName;
     
-##How many invoices were there in 2009?
+## How many invoices were there in 2009?
     SELECT
         COUNT(InvoiceId)
     FROM
@@ -64,10 +67,12 @@
         chinook.employees e
     JOIN
         chinook.customers c
-    ON e.EmployeeId = c.SupportRepId
+    ON 
+        e.EmployeeId = c.SupportRepId
     JOIN
         chinook.Invoices i
-    On c.CustomerId = i.CustomerId
+    On 
+        c.CustomerId = i.CustomerId
     GROUP BY
         c.SupportRepId,
         e.FirstName,
@@ -85,10 +90,12 @@
         chinook.employees e
     JOIN
         chinook.customers c
-    ON e.EmployeeId = c.SupportRepId
+    ON 
+        e.EmployeeId = c.SupportRepId
     JOIN
         chinook.Invoices i
-    On c.CustomerId = i.CustomerId
+    On 
+        c.CustomerId = i.CustomerId
     WHERE
         InvoiceDate LIKE '2009%'
     GROUP BY
